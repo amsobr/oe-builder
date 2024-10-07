@@ -1,0 +1,5 @@
+build/
+
+# temporary editor files
+*.kate-swp
+

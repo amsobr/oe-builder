@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# change version to trigger a rebuild. Changes to source files are not picked
+# up automatically. This was intentional. It may change in the future
+VERSION=%%VERSION%%
+IMAGE_NAME=oe-builder
+ALL_RELEASES=morty
+SRC_DIR=$(pwd)
+BUILD_DIR=$(pwd)/build
+declare -A BASE_IMAGE=()
+BASE_IMAGE[morty]=ubuntu:16.04
+
+for RELEASE in ${ALL_RELEASES}; do
+    RELEASE_BUILDDIR=${BUILD_DIR}/${RELEASE}-${VERSION}
+    DOCKER_IMAGE_NAME=oe-builder-${RELEASE}
+    echo "Configuring ${RELEASE_BUILDDIR}..."
+    # Lets make sure we start from scratch...
+    rm -rf ${RELEASE_BUILDDIR} >/dev/null 2>&1
+    mkdir -p ${RELEASE_BUILDDIR}
+    sed -e "s/@@BASE_IMAGE@@/${BASE_IMAGE[${RELEASE}]}/g" \
+        Dockerfile.in > ${RELEASE_BUILDDIR}/Dockerfile
+
+    sed -e "s/@@RELEASE@@/${RELEASE}/g" \
+        bashrc.sh.in > ${RELEASE_BUILDDIR}/bashrc.sh
+
+    cp entry-point.sh ${RELEASE_BUILDDIR}/entry-point.sh
+
+    cd ${RELEASE_BUILDDIR}
+    echo "Will run docker now..."
+    docker build \
+        --tag ${DOCKER_IMAGE_NAME}:${VERSION} \
+        .
+    cd ${SRC_DIR}
+done

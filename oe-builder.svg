@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   id="svg2"
+   version="1.0"
+   viewBox="0 0 82 82"
+   sodipodi:docname="oe-builder2.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="true"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="7.5281002"
+     inkscape:cx="24.840264"
+     inkscape:cy="-25.305189"
+     inkscape:window-width="3840"
+     inkscape:window-height="2076"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3518">
+    <inkscape:grid
+       type="xygrid"
+       id="grid997" />
+  </sodipodi:namedview>
+  <g
+     id="g3518"
+     transform="translate(-252.4 4.5158)">
+    <path
+       id="path58241"
+       style="fill:#067aab;stroke:#2c2c2c;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:162;fill-opacity:1"
+       d="m 293.4,-85.5156 c -2.74,0 -5.41,0.2872 -8,0.8125 v 6.1875 c -3.47,0.8389 -6.72,2.1847 -9.68,4 l -4.38,-4.375 c -2.24,1.4862 -4.29,3.2298 -6.19,5.125 -1.89,1.8948 -3.64,3.9448 -5.12,6.1878 l 4.37,4.375 c -1.81,2.967 -3.16,6.212 -4,9.687 h -6.18 c -0.53,2.585 -0.82,5.261 -0.82,8 0,2.739 0.29,5.415 0.82,8 h 6.18 c 0.84,3.475 2.19,6.72 4,9.688 l -4.37,4.375 c 1.48,2.242 3.23,4.292 5.12,6.187 1.9,1.895 3.95,3.639 6.19,5.125 l 4.38,-4.375 c 2.96,1.816 6.21,3.161 9.68,4 v 6.188 c 2.59,0.525 5.26,0.812 8,0.812 2.74,0 5.42,-0.287 8,-0.812 v -6.188 c 3.48,-0.839 6.72,-2.184 9.69,-4 l 4.38,4.375 c 2.24,-1.486 4.29,-3.23 6.18,-5.125 1.9,-1.895 3.64,-3.945 5.13,-6.187 l -4.38,-4.375 c 1.82,-2.968 3.16,-6.213 4,-9.688 h 6.19 c 0.53,-2.585 0.81,-5.261 0.81,-8 0,-2.739 -0.28,-5.415 -0.81,-8 h -6.19 c -0.84,-3.475 -2.18,-6.72 -4,-9.687 l 4.38,-4.375 c -1.49,-2.243 -3.23,-4.293 -5.13,-6.1878 -1.89,-1.8952 -3.94,-3.6388 -6.18,-5.125 l -4.38,4.375 c -2.97,-1.8153 -6.21,-3.1611 -9.69,-4 v -6.1875 c -2.58,-0.5253 -5.26,-0.8125 -8,-0.8125 z"
+       sodipodi:nodetypes="scccccccccscccccccccscccccccccscccccccccs" />
+    <path
+       style="opacity:1;fill:#fffcfc;fill-opacity:1;stroke:#2c2c2c;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
+       id="path4404"
+       sodipodi:type="arc"
+       sodipodi:cx="293.39999"
+       sodipodi:cy="-45.5158"
+       sodipodi:rx="22"
+       sodipodi:ry="22"
+       sodipodi:start="0.38878562"
+       sodipodi:end="5.9074638"
+       sodipodi:arc-type="arc"
+       d="m 313.75814,-37.176372 a 22,22 0 0 1 -24.67838,13.23221 22,22 0 0 1 -17.6793,-21.715343 22,22 0 0 1 17.96147,-21.482531 22,22 0 0 1 24.50341,13.553472"
+       sodipodi:open="true" />
+    <path
+       style="fill:#067aab;fill-opacity:1;stroke:#2c2c2c;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 313.8854,-53.532404 278.4,-53.5158 c -0.86372,4.535951 -1.73804,9.062116 0,16 l 35.4854,-0.01661"
+       id="path1481"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke:#2c2c2c;stroke-width:0.00704467;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
+       d="m 39.074456,-2.0719033 c -0.848448,-0.043437 -2.084646,-0.1532484 -2.888316,-0.2565703 -0.746095,-0.09592 -2.079366,-0.3039842 -2.123766,-0.3314251 -0.02013,-0.012441 -0.03681,-1.2629973 -0.03706,-2.7790129 l -4.69e-4,-2.756392 -0.111899,-0.2403187 c -0.06154,-0.1321754 -0.182858,-0.2940334 -0.269587,-0.3596846 -0.161909,-0.1225604 -0.291862,-0.165036 -1.543141,-0.5043793 -2.587775,-0.7017978 -5.223207,-1.8142478 -7.653722,-3.2307378 -0.683774,-0.398499 -0.804324,-0.452982 -1.039983,-0.470028 -0.506051,-0.0366 -0.452375,-0.0792 -2.610746,2.071629 l -1.982,1.9750716 -0.248813,-0.1737019 c -0.136837,-0.095536 -0.57638,-0.4247934 -0.976752,-0.7316833 -3.027065,-2.3202774 -6.068311,-5.4268624 -8.275717,-8.4535164 l -0.3621999,-0.496625 1.9427169,-1.949027 c 1.068494,-1.071964 1.980856,-2.022995 2.027471,-2.113402 0.0531,-0.102992 0.0854,-0.269605 0.08649,-0.446162 0.0017,-0.274267 -0.01247,-0.306648 -0.530779,-1.213319 -1.490502,-2.607331 -2.5970383,-5.309069 -3.3359627,-8.14515 -0.1936991,-0.743441 -0.2978833,-0.973852 -0.5130638,-1.13468 l -0.1265888,-0.09461 5.3005683,0.01038 L 19,-34 l 0.299378,0.678706 c 0.724994,1.643601 1.441399,3.404017 2.448819,4.941659 2.330725,3.557424 5.719154,6.492965 9.506667,8.236028 2.460608,1.132405 4.767698,1.760488 7.608248,2.071275 0.728941,0.07975 3.506942,0.08011 4.273768,5.54e-4 4.735485,-0.491319 8.877321,-2.202292 12.516037,-5.170318 0.766446,-0.625176 2.398397,-2.244497 3.010856,-2.987559 1.190785,-1.444717 2.131375,-2.886378 2.941555,-4.508591 0.985475,-1.973207 1.096485,-2.587474 0.550626,-3.046785 l -0.146558,-0.123319 5.745016,0.0015 5.745011,0.0015 -0.126588,0.09449 c -0.215163,0.160607 -0.319363,0.391089 -0.512927,1.134558 -0.799712,3.071675 -1.931189,5.77114 -3.636132,8.67504 -0.211307,0.3599 -0.232761,0.423158 -0.230976,0.680985 0.0012,0.178521 0.03349,0.345364 0.08672,0.448606 0.04661,0.09041 0.96102,1.042778 2.032017,2.116381 l 1.94726,1.952006 -0.578085,0.772074 c -1.146094,1.53069 -2.164382,2.71584 -3.567155,4.151697 -1.755402,1.796799 -3.842687,3.612263 -5.430345,4.7231669 l -0.294556,0.2061042 -1.983222,-1.9771861 c -2.160056,-2.153481 -2.105934,-2.110522 -2.610478,-2.072066 -0.231662,0.01766 -0.35385,0.07249 -0.969535,0.435075 -2.458991,1.448136 -5.106419,2.552309 -8.054411,3.3592834 -1.149625,0.314695 -1.288213,0.3825756 -1.468073,0.7190606 -0.104835,0.196127 -0.105327,0.2076343 -0.128719,3.0147479 l -0.02348,2.8178694 -0.590803,0.1016096 c -2.530757,0.4352528 -5.640407,0.6153959 -8.285486,0.4799808 z"
+       id="path11650"
+       transform="translate(252.4,-4.5158)"
+       sodipodi:nodetypes="csscccsssssccsscssccsscccsssscsssscccssscsscssscsssssscscc" />
+  </g>
+  <metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:date>2009-12-21T20:11:31</dc:date>
+        <dc:description>cog made as an icon for http://freegamedev.net but not used</dc:description>
+        <dc:source>https://openclipart.org/detail/28703/cog-cogwheel-gear-zahnrad-by-qubodup</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>qubodup</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>cartoon</rdf:li>
+            <rdf:li>cog</rdf:li>
+            <rdf:li>cogwheel</rdf:li>
+            <rdf:li>eisen</rdf:li>
+            <rdf:li>gear</rdf:li>
+            <rdf:li>graphic</rdf:li>
+            <rdf:li>grau</rdf:li>
+            <rdf:li>gray</rdf:li>
+            <rdf:li>grey</rdf:li>
+            <rdf:li>iron</rdf:li>
+            <rdf:li>mechanical</rdf:li>
+            <rdf:li>mechanik</rdf:li>
+            <rdf:li>mechanisch</rdf:li>
+            <rdf:li>mechanism</rdf:li>
+            <rdf:li>metal</rdf:li>
+            <rdf:li>outline</rdf:li>
+            <rdf:li>simple</rdf:li>
+            <rdf:li>svgz</rdf:li>
+            <rdf:li>unchecked</rdf:li>
+            <rdf:li>zahnrad</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

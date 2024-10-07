@@ -1,0 +1,124 @@
+#!/bin/bash
+
+VERSION="%%VERSION%%"
+ALL_RELEASES="%%ALL_RELEASES%%"
+
+usage() {
+cat << EOF
+Usage:
+    oe-builder list
+                List available images
+
+    oe-builder run IMAGE [HOST_WORKDIR]
+                Run the selected image on a specific location
+
+Parameters:
+    IMAGE           The name of the image to run
+
+Operation:
+    The current working directory will show as /workdir in the container.
+    The user in the container will match the uid:gid of the current user.
+EOF
+}
+
+
+list() {
+    for R in ${ALL_RELEASES}; do
+        echo $R
+    done
+    echo
+}
+
+
+get_image_name() {
+    REQUESTED=$1
+    echo "oe-builder-${REQUESTED}"
+}
+
+get_image_id() {
+    set -e
+    IMAGE_NAME=$1
+    TAG=$2
+
+    docker images | tail -n+2 | grep -F "$IMAGE_NAME" | grep -F "$TAG" | awk '{print $3}'
+}
+
+check_if_up_to_date() {
+    echo "Checking if required images are present..."
+    ALL_FOUND=1
+    for RELEASE in $ALL_RELEASES; do
+        IMAGE_NAME=$(get_image_name $RELEASE)
+        if [ -z "$(get_image_id $IMAGE_NAME $VERSION)" ]; then
+            echo "No image found for '$IMAGE_NAME' version '$VERSION'" 1>&2
+            ALL_FOUND=0
+        fi
+    done
+
+    if [ $ALL_FOUND = "1" ]; then
+        true
+    else
+        false
+    fi
+}
+
+run() {
+    CONTAINER_WORKDIR=/workdir
+    HOST_WORKDIR=$(readlink -f .)
+    if [ $# -ne 1 ]; then
+        echo "Error: Invalid arguments"
+        usage
+        exit 1
+    fi
+
+    IMAGE=$(get_image_name $1)
+    if [ -z "${IMAGE}" ]; then
+        echo "Builder not found for release $1" 1>&2
+        exit 1
+    fi
+
+    USER_ID=$(id -u)
+
+    SSH_AUTH_SOCK_MOUNT=""
+    if [ -z "$SSH_AUTH_SOCK" ]; then
+        eval $(ssh-agent)
+    fi
+    SSH_AUTH_SOCK_MOUNT="--mount type=bind,source=$(readlink -f $SSH_AUTH_SOCK),destination=/tmp/ssh-auth-sock"
+
+    docker run --rm --init -it -v $HOST_WORKDIR:$CONTAINER_WORKDIR \
+    $SSH_AUTH_SOCK_MOUNT \
+    $IMAGE:$VERSION oe-container-sentinel ${USER_ID}
+}
+
+
+
+if ! check_if_up_to_date; then
+    echo "One or more images are outdated or missing. Rebuilding docker images..." 1>&2
+    TMPDIR=$(mktemp -d)
+    sed '0,/^##EOF##$/d' $0 | tar vJx -C $TMPDIR 1>&2
+    ORIG_WDIR=$(pwd)
+    cd $TMPDIR
+    ./build.sh 1>&2
+    cd $ORIG_WDIR
+    echo "Images built. Cleaning up temporary files..." 1>&2
+    rm -rvf $TMP_DIR 1>&2
+fi
+
+
+CMD=$1
+shift
+
+case $CMD in
+    list)
+        list
+        ;;
+    run)
+        run $@
+        ;;
+    *)
+        usage
+        ;;
+esac
+
+# End of script. Compressed payload (docker image sources) follow
+exit 0
+##EOF##
