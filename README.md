@@ -16,6 +16,13 @@ on-the-fly.
 * oe-builder runs internally with the same user and group id as the user that
   launched the container
 
+
+## Installing directly from github
+
+Download https://github.com/amsobr/oe-builder/releases/latest/download/oe-builder
+into a location in your computer. Make sure it is executable and in the PATH and
+you're all set.
+
 ## Building
 
 Clone the sources:
