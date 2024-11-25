@@ -1,7 +1,7 @@
 #!/bin/bash
 
 VERSION="%%VERSION%%"
-ALL_RELEASES="%%ALL_RELEASES%%"
+ALL_RELEASES=%%ALL_RELEASES%%
 
 usage() {
 cat << EOF
@@ -40,7 +40,7 @@ get_image_id() {
     IMAGE_NAME=$1
     TAG=$2
 
-    docker images | tail -n+2 | grep -F "$IMAGE_NAME" | grep -F "$TAG" | awk '{print $3}'
+    docker images -q $IMAGE_NAME:$TAG
 }
 
 check_if_up_to_date() {
@@ -63,6 +63,7 @@ check_if_up_to_date() {
 
 run() {
     CONTAINER_WORKDIR=/workdir
+    USERDATA_DIR=.userdata
     HOST_WORKDIR=$(readlink -f .)
     if [ $# -ne 1 ]; then
         echo "Error: Invalid arguments"
@@ -77,16 +78,21 @@ run() {
     fi
 
     USER_ID=$(id -u)
+    GROUP_ID=$(id -g)
 
     SSH_AUTH_SOCK_MOUNT=""
     if [ -z "$SSH_AUTH_SOCK" ]; then
         eval $(ssh-agent)
     fi
     SSH_AUTH_SOCK_MOUNT="--mount type=bind,source=$(readlink -f $SSH_AUTH_SOCK),destination=/tmp/ssh-auth-sock"
+    SSH_DIR_MOUNT="--mount type=bind,source=${HOME}/.ssh,destination=/tmp/_ssh"
+    BASH_HISTORY_MOUNT="--mount type=bind,source=${HOME}/.bash_history,destination=/tmp/_bash_history"
 
     docker run --rm --init -it -v $HOST_WORKDIR:$CONTAINER_WORKDIR \
     $SSH_AUTH_SOCK_MOUNT \
-    $IMAGE:$VERSION oe-container-sentinel ${USER_ID}
+    $SSH_DIR_MOUNT \
+    $BASH_HISTORY_MOUNT \
+    $IMAGE:$VERSION oe-container-sentinel ${USER_ID} ${GROUP_ID}
 }
 
 

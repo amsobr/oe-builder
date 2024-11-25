@@ -4,11 +4,13 @@
 # up automatically. This was intentional. It may change in the future
 VERSION=%%VERSION%%
 IMAGE_NAME=oe-builder
-ALL_RELEASES=morty
+ALL_RELEASES="morty kirkstone scarthgap"
 SRC_DIR=$(pwd)
 BUILD_DIR=$(pwd)/build
-declare -A BASE_IMAGE=()
-BASE_IMAGE[morty]=ubuntu:16.04
+declare -A BASE_IMAGE
+BASE_IMAGE_morty=ubuntu:16.04
+BASE_IMAGE_kirkstone=ubuntu:22.04
+BASE_IMAGE_scarthgap=ubuntu:24.04
 
 for RELEASE in ${ALL_RELEASES}; do
     RELEASE_BUILDDIR=${BUILD_DIR}/${RELEASE}-${VERSION}
@@ -17,17 +19,16 @@ for RELEASE in ${ALL_RELEASES}; do
     # Lets make sure we start from scratch...
     rm -rf ${RELEASE_BUILDDIR} >/dev/null 2>&1
     mkdir -p ${RELEASE_BUILDDIR}
-    sed -e "s/@@BASE_IMAGE@@/${BASE_IMAGE[${RELEASE}]}/g" \
-        Dockerfile.in > ${RELEASE_BUILDDIR}/Dockerfile
-
+    IMG=$(eval "echo \$BASE_IMAGE_${RELEASE}")
+    DOCKER_FILE="Dockerfile.${RELEASE}.in"
+    cp ${DOCKER_FILE} ${RELEASE_BUILDDIR}/Dockerfile
     sed -e "s/@@RELEASE@@/${RELEASE}/g" \
         bashrc.sh.in > ${RELEASE_BUILDDIR}/bashrc.sh
-
     cp entry-point.sh ${RELEASE_BUILDDIR}/entry-point.sh
 
     cd ${RELEASE_BUILDDIR}
-    echo "Will run docker now..."
-    docker build \
+    echo "Building from ${RELEASE_BUILDDIR}..."
+    docker build --no-cache \
         --tag ${DOCKER_IMAGE_NAME}:${VERSION} \
         .
     cd ${SRC_DIR}

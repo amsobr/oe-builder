@@ -1,0 +1,30 @@
+FROM ubuntu:16.04
+
+RUN apt-get -y update
+RUN apt-get -y install \
+      wget \
+      git-core \
+      subversion \
+      diffstat \
+      unzip \
+      build-essential \
+      socat \
+      python \
+      python3 \
+      xz-utils  \
+      locales \
+      tmux \
+      libc6-i386
+
+RUN locale-gen en_US en_US.UTF-8
+RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
+RUN update-locale en_US.UTF-8
+
+RUN apt-get -y clean
+RUN usermod -p "" root
+
+RUN mkdir /opt/oe-builder
+COPY --chmod=755 bashrc.sh /opt/oe-builder/.bashrc
+COPY --chmod=700 entry-point.sh /usr/sbin/entry-point.sh
+
+ENTRYPOINT [ "/usr/sbin/entry-point.sh" ]

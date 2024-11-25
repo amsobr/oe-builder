@@ -1,4 +1,4 @@
-VERSION=0.2dev
+VERSION=0.2
 BUILD_DIR=build
 LAUNCHER_SCRIPT=$(BUILD_DIR)/oe-builder-$(VERSION)
 REDIST_SCRIPT=$(BUILD_DIR)/oe-builder
@@ -20,14 +20,14 @@ $(LAUNCHER_SCRIPT): Makefile build.sh.in oe-builder.in
 		-e "s/%%ALL_RELEASES%%/$$(cat build.sh.in | grep '^ALL_RELEASES=' | sed 's/ALL_RELEASES=//'g)/g" \
 		oe-builder.in > $(LAUNCHER_SCRIPT)
 
-$(DOCKER_PKG_TARBALL): bashrc.sh.in build.sh.in Dockerfile.in entry-point.sh Makefile
+$(DOCKER_PKG_TARBALL): bashrc.sh.in build.sh.in Dockerfile.*.in entry-point.sh Makefile
 	test -d $(DOCKER_PKG) || mkdir -p $(DOCKER_PKG)
 	sed -e "s/%%VERSION%%/$(VERSION)/g" \
 		bashrc.sh.in > $(DOCKER_PKG)/bashrc.sh.in
 	sed -e "s/%%VERSION%%/$(VERSION)/g" \
 		build.sh.in > $(DOCKER_PKG)/build.sh
 	chmod +x $(DOCKER_PKG)/build.sh
-	cp Dockerfile.in $(DOCKER_PKG)
+	cp Dockerfile.*.in $(DOCKER_PKG)
 	cp entry-point.sh $(DOCKER_PKG)
 	tar vcJf $(DOCKER_PKG_TARBALL) -C $(DOCKER_PKG) .
 

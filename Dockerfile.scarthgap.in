@@ -1,36 +1,30 @@
-FROM @@BASE_IMAGE@@
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND="noninteractive"
 
 RUN apt-get -y update
 RUN apt-get -y install \
+      chrpath \
+      cpio \
+      file \
       gawk \
+      lz4 \
       wget \
       git-core \
       subversion \
       diffstat \
       unzip \
-      sysstat \
-      texinfo \
       build-essential \
-      chrpath \
       socat \
-      python \
       python3 \
       xz-utils  \
       locales \
-      cpio \
-      screen \
       tmux \
-      sudo \
-      iputils-ping \
-      iproute2 \
-      fluxbox \
-      tightvncserver \
-      liblz4-tool \
       zstd \
-      bash-completion
+      libc6-i386
 
 RUN locale-gen en_US en_US.UTF-8
-RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
+RUN dpkg-reconfigure locales
 RUN update-locale en_US.UTF-8
 
 RUN apt-get -y clean

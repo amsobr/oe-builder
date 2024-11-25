@@ -8,10 +8,14 @@ if [ "$SENTINEL" != "oe-container-sentinel" ]; then
 fi
 
 USER_ID=$2
+GROUP_ID=$3
 
+groupadd -g $GROUP_ID oe-builder
 useradd --home-dir /home/oe-builder --create-home \
-            --user-group -u $USER_ID --skel /etc/skel --shell /bin/bash oe-builder
+            -g oe-builder -u $USER_ID --skel /etc/skel --shell /bin/bash oe-builder
 
 cp /opt/oe-builder/.bashrc /home/oe-builder
+ln -s /tmp/_ssh /home/oe-builder/.ssh
+ln -s /tmp/_bash_history /home/oe-builder/.bash_history
 
 su -l oe-builder

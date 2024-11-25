@@ -1,0 +1,39 @@
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND="noninteractive"
+
+RUN apt-get -y update
+RUN apt-get -y install \
+      chrpath \
+      cpio \
+      file \
+      gawk \
+      lz4 \
+      python3-distutils \
+      wget \
+      git-core \
+      subversion \
+      diffstat \
+      unzip \
+      build-essential \
+      socat \
+      python3 \
+      xz-utils  \
+      locales \
+      tmux \
+      xxd \
+      zstd \
+      libc6-i386
+
+RUN locale-gen en_US en_US.UTF-8
+RUN dpkg-reconfigure locales
+RUN update-locale en_US.UTF-8
+
+RUN apt-get -y clean
+RUN usermod -p "" root
+
+RUN mkdir /opt/oe-builder
+COPY --chmod=755 bashrc.sh /opt/oe-builder/.bashrc
+COPY --chmod=700 entry-point.sh /usr/sbin/entry-point.sh
+
+ENTRYPOINT [ "/usr/sbin/entry-point.sh" ]
