@@ -16,6 +16,8 @@ RUN apt-get -y install \
       diffstat \
       unzip \
       build-essential \
+      python3-distutils-extra \
+      python3-setuptools \
       socat \
       python3 \
       xz-utils  \
@@ -24,6 +26,7 @@ RUN apt-get -y install \
       xxd \
       zstd \
       libc6-i386
+
 
 RUN locale-gen en_US en_US.UTF-8
 RUN dpkg-reconfigure locales
