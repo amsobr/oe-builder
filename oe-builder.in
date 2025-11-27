@@ -90,6 +90,7 @@ run() {
     GITCONFIG_MOUNT="--mount type=bind,source=${HOME}/.gitconfig,destination=/tmp/.host-mounts/.gitconfig"
 
     docker run --rm --init -it --network=host \
+    -v $HOST_WORKDIR:$CONTAINER_WORKDIR \
     -v $HOST_WORKDIR:$HOST_WORKDIR \
     $SSH_AUTH_SOCK_MOUNT \
     $SSH_DIR_MOUNT \
